@@ -1,0 +1,11 @@
+时间：2019/9/23 14:13:35 位置： 类型：info  信息： 系统开启！
+时间：2019/9/23 14:13:36 位置： 类型：info  信息：SAIC1 PLC connection succeeded
+时间：2019/9/23 14:14:24 位置： 类型：info  信息：System Start！
+时间：2019/9/23 14:14:24 位置： 类型：info  信息：SAIC1 PLC connection succeeded
+时间：2019/9/23 14:14:41 位置： 类型：error  信息：SAIC1 Write heartbeat error:无法访问已释放的对象。
+对象名:“MainForm”。
+时间：2019/9/23 14:14:41 位置： 类型：info  信息：SAIC1 The connection is broken and an attempt is made to reconnect...
+时间：2019/9/23 14:14:43 位置： 类型：info  信息：SAIC1 PLC connection succeeded
+时间：2019/9/23 14:14:43 位置： 类型：error  信息：SAIC1 Failed to start, try to link again after 10 seconds！在创建窗口句柄之前，不能在控件上调用 Invoke 或 BeginInvoke。
+时间：2019/9/23 14:14:54 位置： 类型：info  信息：System Start！
+时间：2019/9/23 14:14:54 位置： 类型：info  信息：SAIC1 PLC connection succeeded

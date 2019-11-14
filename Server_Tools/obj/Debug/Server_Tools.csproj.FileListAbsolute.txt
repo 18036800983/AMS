@@ -1,0 +1,14 @@
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\Server_Tools.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\Server_Tools.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\Interop.SQLDMO.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\MySecurity.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\MySql.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\Server_Modle.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\MyLog.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\Server_Modle.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\obj\Debug\Server_Tools.csprojAssemblyReference.cache
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\obj\Debug\Server_Tools.csproj.CoreCompileInputs.cache
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\obj\Debug\Server_Tools.csproj.CopyComplete
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\obj\Debug\Server_Tools.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\obj\Debug\Server_Tools.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_Tools\bin\Debug\OxyPlot.dll

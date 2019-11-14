@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C53FD49D-ED51-4744-86C3-CD91CA2EB926}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AMS_Server</RootNamespace>
+    <AssemblyName>AMS_Server</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>myfavicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Design, Version=14.1.0.30, Culture=neutral, PublicKeyToken=90f470f34c89ccaf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Keyboard, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.Keyboard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Layout, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.Layout.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Layout.Design, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.Layout.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.Schedule.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar.SuperGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.30, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation, Version=14.1.0.30, Culture=neutral, PublicKeyToken=f90dc37c26666a67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation.Design, Version=14.1.0.30, Culture=neutral, PublicKeyToken=76cb4c6eb576bca5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.Instrumentation.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.SuperGrid.Design, Version=14.1.0.30, Culture=neutral, PublicKeyToken=26d81176cfa2b486, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.SuperGrid.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.TreeGX, Version=14.1.0.30, Culture=neutral, PublicKeyToken=055db68f670cfeab, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DevComponents\DevComponents.TreeGX.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>bin\Debug\CommonDll\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SQLDMO, Version=8.5.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>C:\Program Files\Microsoft SQL Server\80\Tools\Binn\Interop.SQLDMO.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="MyBackup">
+      <HintPath>bin\Debug\MyFile\MyBackup.dll</HintPath>
+    </Reference>
+    <Reference Include="MyExcel">
+      <HintPath>bin\Debug\MyFile\MyExcel.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>bin\Debug\CommonDll\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>bin\Debug\CommonDll\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>bin\Debug\CommonDll\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>bin\Debug\CommonDll\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot">
+      <HintPath>bin\Debug\Oxyplot\OxyPlot.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.OpenXml">
+      <HintPath>bin\Debug\Oxyplot\OxyPlot.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.Pdf">
+      <HintPath>bin\Debug\Oxyplot\OxyPlot.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="OxyPlot.WindowsForms">
+      <HintPath>bin\Debug\Oxyplot\OxyPlot.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormCustomize\RecordBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormCustomize\RecordBox.Designer.cs">
+      <DependentUpon>RecordBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPlan\PlanManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPlan\PlanManagerForm.Designer.cs">
+      <DependentUpon>PlanManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecipe\ProductionManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecipe\ProductionManagerForm.Designer.cs">
+      <DependentUpon>ProductionManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecipe\RecipeInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecipe\RecipeInputForm.Designer.cs">
+      <DependentUpon>RecipeInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecipe\RecipeManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecipe\RecipeManageForm.Designer.cs">
+      <DependentUpon>RecipeManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting\DBManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting\DBManageForm.Designer.cs">
+      <DependentUpon>DBManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting\DBMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting\DBMapping.Designer.cs">
+      <DependentUpon>DBMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting\SystemSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting\SystemSettingForm.Designer.cs">
+      <DependentUpon>SystemSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting\UserManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting\UserManageForm.Designer.cs">
+      <DependentUpon>UserManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStation\LineManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStation\LineManageForm.Designer.cs">
+      <DependentUpon>LineManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStation\StationManageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStation\StationManageForm.Designer.cs">
+      <DependentUpon>StationManageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTool\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTool\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTool\LogManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTool\LogManagerForm.Designer.cs">
+      <DependentUpon>LogManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTool\ReportAnalysisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTool\ReportAnalysisForm.Designer.cs">
+      <DependentUpon>ReportAnalysisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTool\ReportManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTool\ReportManagerForm.Designer.cs">
+      <DependentUpon>ReportManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormMain\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPlan\PlanManagerForm.resx">
+      <DependentUpon>PlanManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecipe\ProductionManagerForm.resx">
+      <DependentUpon>ProductionManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecipe\RecipeInputForm.resx">
+      <DependentUpon>RecipeInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRecipe\RecipeManageForm.resx">
+      <DependentUpon>RecipeManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting\DBManageForm.resx">
+      <DependentUpon>DBManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting\DBMapping.resx">
+      <DependentUpon>DBMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting\SystemSettingForm.resx">
+      <DependentUpon>SystemSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting\UserManageForm.resx">
+      <DependentUpon>UserManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStation\LineManageForm.resx">
+      <DependentUpon>LineManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStation\StationManageForm.resx">
+      <DependentUpon>StationManageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTool\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTool\LogManagerForm.resx">
+      <DependentUpon>LogManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTool\ReportAnalysisForm.resx">
+      <DependentUpon>ReportAnalysisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTool\ReportManagerForm.resx">
+      <DependentUpon>ReportManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\image\anwha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\backup.png" />
+    <Content Include="Resources\barcode.png" />
+    <Content Include="Resources\barcode16.png" />
+    <Content Include="Resources\blue.png" />
+    <Content Include="Resources\blue2.png" />
+    <Content Include="Resources\blue3.png" />
+    <Content Include="Resources\bolt.png" />
+    <Content Include="Resources\bolt1.png" />
+    <Content Include="Resources\bolt2.png" />
+    <Content Include="Resources\close-s.png" />
+    <Content Include="Resources\close.png" />
+    <Content Include="Resources\Close1.png" />
+    <Content Include="Resources\clsose_16.png" />
+    <Content Include="Resources\code.png" />
+    <Content Include="Resources\led.png" />
+    <Content Include="Resources\liaojia.png" />
+    <Content Include="Resources\mini-s.png" />
+    <Content Include="Resources\mini.png" />
+    <Content Include="Resources\mini_16.png" />
+    <Content Include="Resources\parts2.png" />
+    <Content Include="Resources\pasue2.png" />
+    <Content Include="Resources\pause.png" />
+    <Content Include="Resources\Query.png" />
+    <Content Include="Resources\Query1.png" />
+    <Content Include="Resources\run.png" />
+    <Content Include="Resources\run4.png" />
+    <Content Include="Resources\setting.jpg" />
+    <Content Include="Resources\setting1.png" />
+    <Content Include="Resources\setting2.png" />
+    <Content Include="Resources\SK-Logo small.png" />
+    <Content Include="Resources\SK-Logo2.png" />
+    <Content Include="Resources\sn2.png" />
+    <Content Include="Resources\sn3.png" />
+    <Content Include="Resources\station1.png" />
+    <Content Include="Resources\station2.png" />
+    <Content Include="Resources\stop.png" />
+    <Content Include="Resources\stop2.png" />
+    <Content Include="Resources\stop3.png" />
+    <Content Include="Resources\Tray.png" />
+    <Content Include="Resources\upload.png" />
+    <Content Include="Resources\wait1.png" />
+    <Content Include="Resources\wait2.png" />
+    <Content Include="Resources\wait3.png" />
+    <Content Include="Resources\yuan.png" />
+    <Content Include="Resources\yuan3.png" />
+    <None Include="bin\Debug\image\setting.png" />
+    <Content Include="myfavicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Server_BLL\Server_BLL.csproj">
+      <Project>{8F8252FA-3A56-492B-B5E7-8E68C7A099CC}</Project>
+      <Name>Server_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server_Modle\Server_Modle.csproj">
+      <Project>{2C959299-9A43-499E-8DE9-80B56CD6FC93}</Project>
+      <Name>Server_Modle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Server_Tools\Server_Tools.csproj">
+      <Project>{B7D3D416-D38F-4D91-9C9F-026DD15D462A}</Project>
+      <Name>Server_Tools</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

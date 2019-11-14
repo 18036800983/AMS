@@ -1,0 +1,15 @@
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_DAL.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_DAL.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_Modle.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_Tools.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\MyLog.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\MySql.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\MySecurity.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_Modle.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\Server_Tools.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\obj\Debug\Server_DAL.csprojAssemblyReference.cache
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\obj\Debug\Server_DAL.csproj.CoreCompileInputs.cache
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\obj\Debug\Server_DAL.csproj.CopyComplete
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\obj\Debug\Server_DAL.dll
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\obj\Debug\Server_DAL.pdb
+D:\昂华\泰国项目\程序\AMS_Server\Server_DAL\bin\Debug\OxyPlot.dll

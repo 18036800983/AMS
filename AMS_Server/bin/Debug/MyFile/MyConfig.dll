@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <InfoConfig>
+    <line name="SAIC" index="0" plcIP="192.168.100.40" updateRate="50" threaCount="10" heartBeatAddr="OP0080_MesPublicInteraction.i_Heartbeat" plcSlot="0" AddrType="bool" plcType="AB">
+      <station name="OP0080" desc="固定上层模板" planTime="300" AlarmAddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool">
+        <DataRecord>
+          <opcitem name="总成绑定" addr="OP0080_EOLData.q_MesRequestSN" backaddr="OP0080_EOLData.i_StationStatus" AddrType="int" OperationDesc="">
+            <Tag name="总成数据" Tag="1" TableName="">
+              <dataitem name="总成号" addr="OP0080_EOLData.q_MesSN" ColmnName="SN" AddrType="string" AddrLength="50" />
+            </Tag>
+          </opcitem>
+          <opcitem name="拧紧记录" addr="OP0080_AtlasData.q_MesRequestRecord" backaddr="OP0080_AtlasData.i_MesRecordStatus" AddrType="short" OperationDesc="">
+            <Tag name="拧紧数据" Tag="1" TableName="Trace_Bolt">
+              <dataitem name="拧紧结果" addr="OP0080_AtlasData.q_MesTighteningResult" ColmnName="Result" AddrType="short" AddrLength="0" />
+              <dataitem name="扭矩" addr="OP0080_AtlasData.q_MesFinalTorque" ColmnName="Torque" AddrType="float" AddrLength="0" />
+              <dataitem name="角度" addr="OP0080_AtlasData.q_MesFinalAngle" ColmnName="Angle" AddrType="float" AddrLength="0" />
+              <dataitem name="程序号" addr="OP0080_AtlasData.q_MesProgramNumber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
+            </Tag>
+            <Tag name="拧紧下发" Tag="10" TableName="Crafts_Recipe">
+              <dataitem name="总成条码" addr="OP0080_AtlasData.i_MesSN.DATA" ColmnName="SN" AddrType="string" AddrLength="10" />
+              <dataitem name="拧紧数量" addr="OP0080_AtlasData.i_MesBoltNumber" ColmnName="BlotNumber" AddrType="short" AddrLength="0" />
+              <dataitem name="套筒号" addr="OP0080_AtlasData.i_MesSleeveNumber" ColmnName="SleeveNo" AddrType="short" AddrLength="0" />
+              <dataitem name="程序号" addr="OP0080_AtlasData.i_MesProgramNmber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
+            </Tag>
+          </opcitem>
+          <opcitem name="测量记录" addr="OP0080_EOLData.q_MesRequestRecord" backaddr="OP0080_EOLData.i_RecordStatus" AddrType="short" OperationDesc="EOL">
+            <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
+              <dataitem name="测量结果" addr="OP0080_EOLData.q_MesTestResult" ColmnName="Result" AddrType="short" AddrLength="0" />
+            </Tag>
+            <Tag name="测量下发" Tag="10" TableName="Crafts_Recipe">
+              <dataitem name="程序号" addr="OP0080_EOLData.i_ProgramNumber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
+            </Tag>
+          </opcitem>
+          <opcitem name="测量记录1" addr="OP0080_ChargeDischargeData.q_MesRequestRecord" backaddr="OP0080_ChargeDischargeData.i_RecordStatus" AddrType="short" OperationDesc="充放电">
+            <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
+              <dataitem name="测量结果" addr="OP0080_ChargeDischargeData.q_MesTestResult" ColmnName="Result" AddrType="short" AddrLength="0" />
+            </Tag>
+            <Tag name="测量下发" Tag="10" TableName="Crafts_Recipe">
+              <dataitem name="程序号" addr="OP0080_ChargeDischargeData.i_ProgramNumber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
+            </Tag>
+          </opcitem>
+        </DataRecord>
+        <Alarm>
+          <opcitem name="模块故障" addr="OP0080_Alarm[0]" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="short" />
+          <opcitem name="EOL警报" addr="OP0080_Alarm[3].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+          <opcitem name="充放电警报" addr="OP0080_Alarm[4].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+          <opcitem name="Ames离线" addr="OP0080_Alarm[5].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+        </Alarm>
+      </station>
+    </line>
+  </InfoConfig>
+  <ReportConfig>
+    <table Name="Bolt Online Table" DataName="Trace_Bolt" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="Bolt Name" DisplayIndex="0" DataName="BoltName" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Bolt No" DisplayIndex="1" DataName="BoltNo" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Program No" DisplayIndex="2" DataName="ProgramNo" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Torque" DisplayIndex="3" DataName="Torque" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Angle" DisplayIndex="4" DataName="Angle" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Result" DisplayIndex="5" DataName="Result" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="SN" DisplayIndex="6" DataName="SN" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Station" DisplayIndex="7" DataName="Station" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="8" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+    <table Name="Bolt Offline Table" DataName="Trace_Bolt_Transfer" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="Bolt Name" DisplayIndex="0" DataName="BoltName" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Bolt No" DisplayIndex="1" DataName="BoltNo" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Program No" DisplayIndex="2" DataName="ProgramNo" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Torque" DisplayIndex="3" DataName="Torque" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Angle" DisplayIndex="4" DataName="Angle" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Result" DisplayIndex="5" DataName="Result" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="SN" DisplayIndex="6" DataName="SN" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Station" DisplayIndex="7" DataName="Station" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="8" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+    <table Name="Scanner Online Table" DataName="Trace_Keypart" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="Part Name" DisplayIndex="0" DataName="ComponentName" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="BarCode content" DisplayIndex="1" DataName="ComponentBarcode" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="SN" DisplayIndex="2" DataName="SN" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Station" DisplayIndex="3" DataName="Station" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="4" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+    <table Name="Scanner Offline Table" DataName="Trace_Keypart_Transfer" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="Part Name" DisplayIndex="0" DataName="ComponentName" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="BarCode content" DisplayIndex="1" DataName="ComponentBarcode" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="SN" DisplayIndex="2" DataName="SN" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Station" DisplayIndex="3" DataName="Station" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="4" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+    <table Name="SN Online Table" DataName="Trace_StationStatus" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="SN" DisplayIndex="0" DataName="SN" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Station" DisplayIndex="1" DataName="Station" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Station status" DisplayIndex="2" DataName="StationStatue" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="3" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+    <table Name="SN Offline Table" DataName="Trace_StationStatus_transfer" ColumnAutoSizeMode="屏幕显示区域自动调整">
+      <column Name="SN" DisplayIndex="0" DataName="SN" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Station" DisplayIndex="1" DataName="Station" Width="0" autoFilter="true" enableSearch="true" isDatetime="false" />
+      <column Name="Station status" DisplayIndex="2" DataName="StationStatue" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+      <column Name="Record Time" DisplayIndex="3" DataName="RecordTime" Width="0" autoFilter="false" enableSearch="false" isDatetime="false" />
+    </table>
+  </ReportConfig>
+  <StationConfig>
+    <station Name="OP0010" Index="1" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0020" Index="2" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0030" Index="3" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0040" Index="4" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0050" Index="5" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0060" Index="6" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0080" Index="7" IsShield="0" IsEnd="0" IsOutLine="0" />
+    <station Name="OP0090" Index="8" IsShield="0" IsEnd="1" IsOutLine="0" />
+  </StationConfig>
+  <dbConfig>
+    <DataSource>.</DataSource>
+    <InitialCatalog>AMS</InitialCatalog>
+    <UserID>sa</UserID>
+    <pwd>zjs147258369</pwd>
+    <BackupPath>D:\Back\</BackupPath>
+    <BackupPeriod>3</BackupPeriod>
+    <BackupTime>2016-10-26T16:57:02.2196251+08:00</BackupTime>
+    <ReportNameShowType>数据库说明</ReportNameShowType>
+    <DatabaseType>SqlServer</DatabaseType>
+    <DatetimeColmn>Savetime</DatetimeColmn>
+    <AutoBackup>false</AutoBackup>
+  </dbConfig>
+  <serialPortConfig>
+    <PortName>COM2</PortName>
+    <Parity>None</Parity>
+    <BaudRate>9600</BaudRate>
+    <DataBits>8</DataBits>
+    <StopBits>One</StopBits>
+  </serialPortConfig>
+  <PrinterConfig>
+    <IP>192.168.1.235</IP>
+    <PORT>9100</PORT>
+    <ZPLCODE>^XA^FO1000,750^BXN,16, 200^FD{0}^FS^FO800,1200^A0N,80,72^FD{1}^FS^XZ</ZPLCODE>
+    <Enable>false</Enable>
+  </PrinterConfig>
+  <sysConfig>
+    <IsChinese>false</IsChinese>
+    <IsHaveClient>true</IsHaveClient>
+    <QCScannerStr>0699</QCScannerStr>
+    <offlineTest>true</offlineTest>
+    <leftTrayCode>^\w{2}L$</leftTrayCode>
+    <rightTrayCode>^\w{2}R$</rightTrayCode>
+    <TrayCode>^NULL$</TrayCode>
+    <Style>0</Style>
+    <ProgramName />
+    <SystemEnable>true</SystemEnable>
+    <ControlTagType>MyPLCDataview</ControlTagType>
+    <LogKeepPeriod>Threemonthes</LogKeepPeriod>
+    <AutoStart>false</AutoStart>
+    <WorkStatus>true</WorkStatus>
+    <startWithReport>false</startWithReport>
+    <StartWithLogin>true</StartWithLogin>
+    <QuitWithLogin>false</QuitWithLogin>
+    <FullScreen>false</FullScreen>
+    <selectRecord>1</selectRecord>
+    <DataRecordEnable>true</DataRecordEnable>
+    <RecipeEnable>false</RecipeEnable>
+  </sysConfig>
+</configuration>
