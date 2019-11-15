@@ -150,6 +150,7 @@ namespace AMS_Server.FormRecipe
             production_Name_textBox.Text = string.Empty;
             production_No_textBox.Text = string.Empty;
             production_Descripe_textBox.Text = string.Empty;
+            production_Rule_textBox.Text = string.Empty;
             productionName = string.Empty;
         }
 

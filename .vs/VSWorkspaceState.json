@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\AMS_Server",
+    "\\Server_BLL",
+    "\\Server_DAL",
+    "\\Server_Modle"
   ],
   "SelectedNode": "\\AMS_Server.sln",
   "PreviewInSolutionExplorer": false
