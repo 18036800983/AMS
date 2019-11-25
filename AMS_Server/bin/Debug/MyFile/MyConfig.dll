@@ -136,7 +136,7 @@
     <Enable>false</Enable>
   </PrinterConfig>
   <sysConfig>
-    <IsChinese>false</IsChinese>
+    <IsChinese>true</IsChinese>
     <IsHaveClient>true</IsHaveClient>
     <QCScannerStr>0699</QCScannerStr>
     <offlineTest>true</offlineTest>
