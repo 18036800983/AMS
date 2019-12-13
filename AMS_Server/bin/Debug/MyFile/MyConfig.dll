@@ -4,12 +4,12 @@
     <line name="SAIC" index="0" plcIP="192.168.100.40" updateRate="50" threaCount="10" heartBeatAddr="OP0080_MesPublicInteraction.i_Heartbeat" plcSlot="0" AddrType="bool" plcType="AB">
       <station name="OP0080" desc="固定上层模板" planTime="300" AlarmAddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool">
         <DataRecord>
-          <opcitem name="总成绑定" addr="OP0080_EOLData.q_MesRequestSN" backaddr="OP0080_EOLData.i_StationStatus" AddrType="int" OperationDesc="">
+		 <opcitem name="总成绑定" addr="OP0080_EOLData.q_MesRequestSN" backaddr="OP0080_EOLData.i_StationStatus" AddrType="int" OperationDesc="">
             <Tag name="总成数据" Tag="1" TableName="">
               <dataitem name="总成号" addr="OP0080_EOLData.q_MesSN" ColmnName="SN" AddrType="string" AddrLength="50" />
             </Tag>
           </opcitem>
-          <opcitem name="拧紧记录" addr="OP0080_AtlasData.q_MesRequestRecord" backaddr="OP0080_AtlasData.i_MesRecordStatus" AddrType="short" OperationDesc="">
+		  <opcitem name="拧紧记录" addr="OP0080_AtlasData.q_MesRequestRecord" backaddr="OP0080_AtlasData.i_MesRecordStatus" AddrType="short" OperationDesc="">
             <Tag name="拧紧数据" Tag="1" TableName="Trace_Bolt">
               <dataitem name="拧紧结果" addr="OP0080_AtlasData.q_MesTighteningResult" ColmnName="Result" AddrType="short" AddrLength="0" />
               <dataitem name="扭矩" addr="OP0080_AtlasData.q_MesFinalTorque" ColmnName="Torque" AddrType="float" AddrLength="0" />
@@ -17,22 +17,22 @@
               <dataitem name="程序号" addr="OP0080_AtlasData.q_MesProgramNumber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
             </Tag>
             <Tag name="拧紧下发" Tag="10" TableName="Crafts_Recipe">
-              <dataitem name="总成条码" addr="OP0080_AtlasData.i_MesSN.DATA" ColmnName="SN" AddrType="string" AddrLength="10" />
+			  <dataitem name="总成条码" addr="OP0080_AtlasData.i_MesSN.DATA" ColmnName="SN" AddrType="string" AddrLength="10" />
               <dataitem name="拧紧数量" addr="OP0080_AtlasData.i_MesBoltNumber" ColmnName="BlotNumber" AddrType="short" AddrLength="0" />
               <dataitem name="套筒号" addr="OP0080_AtlasData.i_MesSleeveNumber" ColmnName="SleeveNo" AddrType="short" AddrLength="0" />
               <dataitem name="程序号" addr="OP0080_AtlasData.i_MesProgramNmber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
             </Tag>
           </opcitem>
-          <opcitem name="测量记录" addr="OP0080_EOLData.q_MesRequestRecord" backaddr="OP0080_EOLData.i_RecordStatus" AddrType="short" OperationDesc="EOL">
-            <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
+		  <opcitem name="测量记录" addr="OP0080_EOLData.q_MesRequestRecord" backaddr="OP0080_EOLData.i_RecordStatus" AddrType="short" OperationDesc="EOL">
+		    <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
               <dataitem name="测量结果" addr="OP0080_EOLData.q_MesTestResult" ColmnName="Result" AddrType="short" AddrLength="0" />
             </Tag>
             <Tag name="测量下发" Tag="10" TableName="Crafts_Recipe">
               <dataitem name="程序号" addr="OP0080_EOLData.i_ProgramNumber" ColmnName="ProgramNo" AddrType="short" AddrLength="0" />
             </Tag>
           </opcitem>
-          <opcitem name="测量记录1" addr="OP0080_ChargeDischargeData.q_MesRequestRecord" backaddr="OP0080_ChargeDischargeData.i_RecordStatus" AddrType="short" OperationDesc="充放电">
-            <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
+		  <opcitem name="测量记录1" addr="OP0080_ChargeDischargeData.q_MesRequestRecord" backaddr="OP0080_ChargeDischargeData.i_RecordStatus" AddrType="short" OperationDesc="充放电">
+		    <Tag name="测量数据" Tag="1" TableName="Trace_Bolt">
               <dataitem name="测量结果" addr="OP0080_ChargeDischargeData.q_MesTestResult" ColmnName="Result" AddrType="short" AddrLength="0" />
             </Tag>
             <Tag name="测量下发" Tag="10" TableName="Crafts_Recipe">
@@ -42,9 +42,9 @@
         </DataRecord>
         <Alarm>
           <opcitem name="模块故障" addr="OP0080_Alarm[0]" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="short" />
-          <opcitem name="EOL警报" addr="OP0080_Alarm[3].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
-          <opcitem name="充放电警报" addr="OP0080_Alarm[4].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
-          <opcitem name="Ames离线" addr="OP0080_Alarm[5].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+		  <opcitem name="EOL警报" addr="OP0080_Alarm[3].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+		  <opcitem name="充放电警报" addr="OP0080_Alarm[4].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
+		  <opcitem name="Ames离线" addr="OP0080_Alarm[5].0" backaddr="OP0080_MesPublicInteraction.i_Alarm" AddrType="bool" />
         </Alarm>
       </station>
     </line>
@@ -106,11 +106,11 @@
     <station Name="OP0040" Index="4" IsShield="0" IsEnd="0" IsOutLine="0" />
     <station Name="OP0050" Index="5" IsShield="0" IsEnd="0" IsOutLine="0" />
     <station Name="OP0060" Index="6" IsShield="0" IsEnd="0" IsOutLine="0" />
-    <station Name="OP0080" Index="7" IsShield="0" IsEnd="0" IsOutLine="0" />
+	<station Name="OP0080" Index="7" IsShield="0" IsEnd="0" IsOutLine="0" />
     <station Name="OP0090" Index="8" IsShield="0" IsEnd="1" IsOutLine="0" />
   </StationConfig>
   <dbConfig>
-    <DataSource>.</DataSource>
+    <DataSource>192.168.100.13</DataSource>
     <InitialCatalog>AMS</InitialCatalog>
     <UserID>sa</UserID>
     <pwd>zjs147258369</pwd>
@@ -136,15 +136,15 @@
     <Enable>false</Enable>
   </PrinterConfig>
   <sysConfig>
-    <IsChinese>true</IsChinese>
+    <IsChinese>false</IsChinese>
     <IsHaveClient>true</IsHaveClient>
     <QCScannerStr>0699</QCScannerStr>
-    <offlineTest>true</offlineTest>
+    <offlineTest>false</offlineTest>
     <leftTrayCode>^\w{2}L$</leftTrayCode>
     <rightTrayCode>^\w{2}R$</rightTrayCode>
     <TrayCode>^NULL$</TrayCode>
     <Style>0</Style>
-    <ProgramName />
+    <ProgramName></ProgramName>
     <SystemEnable>true</SystemEnable>
     <ControlTagType>MyPLCDataview</ControlTagType>
     <LogKeepPeriod>Threemonthes</LogKeepPeriod>

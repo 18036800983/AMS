@@ -514,7 +514,7 @@ namespace AMS_Server.FormRecipe
                             }
                             if (stationDt.Rows[0]["OperationType"].ToString() != "Scanning")
                             {
-                                MessageBoxEx.Show("ProductionName：" + proditionName + ",Station：" + st + ",没有以操作类型扫描为第一步，请检查！");
+                                MessageBoxEx.Show("ProductionName：" + proditionName + ",Station：" + st + ",Scanning by operation type is not the first step, please check！");
                                 return false;
                             }
                         }

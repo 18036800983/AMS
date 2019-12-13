@@ -365,8 +365,8 @@ namespace Server_BLL
 
                 #region 清除数据缓存
                 ResetCacheStationInfo(station);
-                    ResetCacheStationRecipeInfo(station);
-                    #endregion
+                ResetCacheStationRecipeInfo(station);
+                #endregion
 
                 recodeRecipeMessage(lineName + station, "Station：" + station + " , SN ：" + sn + " Go offline！", 0, true);
             }

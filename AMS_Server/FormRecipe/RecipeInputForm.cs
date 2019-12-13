@@ -67,14 +67,19 @@ namespace AMS_Server.FormRecipe
             {
                 if (!String.IsNullOrEmpty(recipeInput_production_comboBox.Text))
                 {
-                    if (XML_Tool.xml.SysConfig.IsChinese)
-                    {
-                        dataGirlDt = crafts_Recipe_Bll.Select_Condition_Recipe_Table(recipeInput_production_comboBox.Text, "");
-                    }
-                    else
+                    dataGirlDt = crafts_Recipe_Bll.Select_Condition_Recipe_Table(recipeInput_production_comboBox.Text, "");
+                    if (dataGirlDt.Rows[0]["操作类型"].ToString() != "扫描")
                     {
                         dataGirlDt = crafts_Recipe_Bll.Select_Condition_Recipe_English(recipeInput_production_comboBox.Text, "");
                     }
+                    //if (XML_Tool.xml.SysConfig.IsChinese)
+                    //{
+                    //    dataGirlDt = crafts_Recipe_Bll.Select_Condition_Recipe_Table(recipeInput_production_comboBox.Text, "");
+                    //}
+                    //else
+                    //{
+                    //    dataGirlDt = crafts_Recipe_Bll.Select_Condition_Recipe_English(recipeInput_production_comboBox.Text, "");
+                    //}
                     recipeInput_view_dataGridView.DataSource = dataGirlDt;
                 }
                 else
@@ -351,6 +356,11 @@ namespace AMS_Server.FormRecipe
                     #region check station recipe
                     foreach (var st in stationList)
                     {
+                        if (string.IsNullOrEmpty(st))
+                        {
+                            dataGirlDt.Rows.RemoveAt(dataGirlDt.Rows.Count - 1);
+                            break;
+                        }
                         DataTable dt = new DataTable();
                         dt = GetNewDataTable(dataGirlDt, "Station = '" + st + "'");
                         if (dt.Rows.Count > 0)
