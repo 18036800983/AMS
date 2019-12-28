@@ -242,13 +242,29 @@ namespace AMS_Server.FormTool
             string strCondition = "";
             DateTime beginTime = start_day_dateTimePicker.Value.Date + start_time_dateTimePicker.Value.TimeOfDay;
             DateTime endTime = end_day_dateTimePicker.Value.Date + end_time_dateTimePicker.Value.TimeOfDay;
+            if (tablistName == "Air Test" || tablistName == "Air Test Offline")
+            {
+                strCondition += " and MeasureName like '%Test'";
+            }
+            if (tablistName == "OCV")
+            {
+                strCondition += " and MeasureName = 'OCV'";
+            }
+            if (tablistName == "EOL")
+            {
+                strCondition += " and MeasureName like 'EOL%'";
+            }
+            if (tablistName == "Insulation")
+            {
+                strCondition += " and MeasureName = 'lnsulation'";
+            }
             if (chkTime.Checked)
             {
-                strCondition += " and SaveTime between '" + beginTime + "'" + " and '" + endTime + "'";
+                strCondition += " and RecordTime between '" + beginTime + "'" + " and '" + endTime + "'";
             }
             if (chkCode.Checked)
             {
-                strCondition += " and SN like '%" + txtStation.Text + "%'";
+                strCondition += " and SN like '%" + txtCode.Text + "%'";
             }
             if (ckStation.Checked)
             {
@@ -370,9 +386,9 @@ namespace AMS_Server.FormTool
                 select_count_label.Text = English.ReportManagerForm_Label_count;
                 chkTime.Text = English.ReportManagerForm_Condition_time;
                 chkCode.Text = English.ReportManagerForm_Condition_serialN0;
-                txtCode.Text = English.ReportManagerForm_serialN0_tip;
+                txtCode.WatermarkText = English.ReportManagerForm_serialN0_tip;
                 ckStation.Text = English.ReportManagerForm_Condition_station;
-                txtStation.Text = English.ReportManagerForm_station_tip;
+                txtStation.WatermarkText = English.ReportManagerForm_station_tip;
                 select_button.Text = English.ReportManagerForm_Button_select;
                 export_button.Text = English.ReportManagerForm_Button_exput;
                 show_superGridControl.PrimaryGrid.GroupByRow.WatermarkText = English.ReportManagerForm_Table_tip;

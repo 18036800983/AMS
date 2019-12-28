@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserManageForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripAdd = new System.Windows.Forms.ToolStripButton();
             this.toolStripEdit = new System.Windows.Forms.ToolStripButton();
@@ -38,9 +38,13 @@
             this.toolStripSave = new System.Windows.Forms.ToolStripButton();
             this.toolStripExit = new System.Windows.Forms.ToolStripButton();
             this.userInfo_groupPanel = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.userOPLevel_textBox = new System.Windows.Forms.TextBox();
+            this.userEmployee_textBox = new System.Windows.Forms.TextBox();
+            this.userGroup_textBox = new System.Windows.Forms.TextBox();
+            this.userGroup_label = new System.Windows.Forms.Label();
+            this.userEmployee_label = new System.Windows.Forms.Label();
+            this.userOperator_textBox = new System.Windows.Forms.TextBox();
             this.userlevel_comboBox = new System.Windows.Forms.ComboBox();
-            this.userOPLevel_label = new System.Windows.Forms.Label();
+            this.userOperator_label = new System.Windows.Forms.Label();
             this.userlevel_label = new System.Windows.Forms.Label();
             this.userPassword_Textbox = new System.Windows.Forms.TextBox();
             this.username_label = new System.Windows.Forms.Label();
@@ -123,9 +127,13 @@
             // 
             this.userInfo_groupPanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.userInfo_groupPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.userInfo_groupPanel.Controls.Add(this.userOPLevel_textBox);
+            this.userInfo_groupPanel.Controls.Add(this.userEmployee_textBox);
+            this.userInfo_groupPanel.Controls.Add(this.userGroup_textBox);
+            this.userInfo_groupPanel.Controls.Add(this.userGroup_label);
+            this.userInfo_groupPanel.Controls.Add(this.userEmployee_label);
+            this.userInfo_groupPanel.Controls.Add(this.userOperator_textBox);
             this.userInfo_groupPanel.Controls.Add(this.userlevel_comboBox);
-            this.userInfo_groupPanel.Controls.Add(this.userOPLevel_label);
+            this.userInfo_groupPanel.Controls.Add(this.userOperator_label);
             this.userInfo_groupPanel.Controls.Add(this.userlevel_label);
             this.userInfo_groupPanel.Controls.Add(this.userPassword_Textbox);
             this.userInfo_groupPanel.Controls.Add(this.username_label);
@@ -136,7 +144,7 @@
             this.userInfo_groupPanel.Location = new System.Drawing.Point(0, 27);
             this.userInfo_groupPanel.Margin = new System.Windows.Forms.Padding(4);
             this.userInfo_groupPanel.Name = "userInfo_groupPanel";
-            this.userInfo_groupPanel.Size = new System.Drawing.Size(727, 141);
+            this.userInfo_groupPanel.Size = new System.Drawing.Size(727, 152);
             // 
             // 
             // 
@@ -168,50 +176,92 @@
             this.userInfo_groupPanel.TabIndex = 6;
             this.userInfo_groupPanel.Text = "用户信息";
             // 
-            // userOPLevel_textBox
+            // userEmployee_textBox
             // 
-            this.userOPLevel_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.userOPLevel_textBox.Location = new System.Drawing.Point(543, 73);
-            this.userOPLevel_textBox.Margin = new System.Windows.Forms.Padding(4);
-            this.userOPLevel_textBox.Name = "userOPLevel_textBox";
-            this.userOPLevel_textBox.Size = new System.Drawing.Size(155, 25);
-            this.userOPLevel_textBox.TabIndex = 9;
+            this.userEmployee_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userEmployee_textBox.Location = new System.Drawing.Point(143, 97);
+            this.userEmployee_textBox.Margin = new System.Windows.Forms.Padding(4);
+            this.userEmployee_textBox.Name = "userEmployee_textBox";
+            this.userEmployee_textBox.PasswordChar = '*';
+            this.userEmployee_textBox.Size = new System.Drawing.Size(166, 25);
+            this.userEmployee_textBox.TabIndex = 13;
+            // 
+            // userGroup_textBox
+            // 
+            this.userGroup_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userGroup_textBox.Location = new System.Drawing.Point(543, 97);
+            this.userGroup_textBox.Margin = new System.Windows.Forms.Padding(4);
+            this.userGroup_textBox.Name = "userGroup_textBox";
+            this.userGroup_textBox.PasswordChar = '*';
+            this.userGroup_textBox.Size = new System.Drawing.Size(155, 25);
+            this.userGroup_textBox.TabIndex = 12;
+            // 
+            // userGroup_label
+            // 
+            this.userGroup_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userGroup_label.AutoSize = true;
+            this.userGroup_label.Location = new System.Drawing.Point(383, 100);
+            this.userGroup_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userGroup_label.Name = "userGroup_label";
+            this.userGroup_label.Size = new System.Drawing.Size(69, 15);
+            this.userGroup_label.TabIndex = 11;
+            this.userGroup_label.Text = "班    组";
+            // 
+            // userEmployee_label
+            // 
+            this.userEmployee_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userEmployee_label.AutoSize = true;
+            this.userEmployee_label.Location = new System.Drawing.Point(27, 100);
+            this.userEmployee_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userEmployee_label.Name = "userEmployee_label";
+            this.userEmployee_label.Size = new System.Drawing.Size(52, 15);
+            this.userEmployee_label.TabIndex = 10;
+            this.userEmployee_label.Text = "员工号";
+            // 
+            // userOperator_textBox
+            // 
+            this.userOperator_textBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userOperator_textBox.Location = new System.Drawing.Point(543, 54);
+            this.userOperator_textBox.Margin = new System.Windows.Forms.Padding(4);
+            this.userOperator_textBox.Name = "userOperator_textBox";
+            this.userOperator_textBox.Size = new System.Drawing.Size(155, 25);
+            this.userOperator_textBox.TabIndex = 9;
             // 
             // userlevel_comboBox
             // 
             this.userlevel_comboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userlevel_comboBox.FormattingEnabled = true;
-            this.userlevel_comboBox.Location = new System.Drawing.Point(143, 75);
+            this.userlevel_comboBox.Location = new System.Drawing.Point(143, 56);
             this.userlevel_comboBox.Name = "userlevel_comboBox";
             this.userlevel_comboBox.Size = new System.Drawing.Size(166, 23);
             this.userlevel_comboBox.TabIndex = 8;
             // 
-            // userOPLevel_label
+            // userOperator_label
             // 
-            this.userOPLevel_label.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.userOPLevel_label.AutoSize = true;
-            this.userOPLevel_label.Location = new System.Drawing.Point(383, 78);
-            this.userOPLevel_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.userOPLevel_label.Name = "userOPLevel_label";
-            this.userOPLevel_label.Size = new System.Drawing.Size(67, 15);
-            this.userOPLevel_label.TabIndex = 5;
-            this.userOPLevel_label.Text = "操作权限";
+            this.userOperator_label.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userOperator_label.AutoSize = true;
+            this.userOperator_label.Location = new System.Drawing.Point(383, 59);
+            this.userOperator_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userOperator_label.Name = "userOperator_label";
+            this.userOperator_label.Size = new System.Drawing.Size(67, 15);
+            this.userOperator_label.TabIndex = 5;
+            this.userOperator_label.Text = "操作员工";
             // 
             // userlevel_label
             // 
             this.userlevel_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userlevel_label.AutoSize = true;
-            this.userlevel_label.Location = new System.Drawing.Point(27, 83);
+            this.userlevel_label.Location = new System.Drawing.Point(27, 64);
             this.userlevel_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userlevel_label.Name = "userlevel_label";
-            this.userlevel_label.Size = new System.Drawing.Size(45, 15);
+            this.userlevel_label.Size = new System.Drawing.Size(53, 15);
             this.userlevel_label.TabIndex = 4;
-            this.userlevel_label.Text = "权 限";
+            this.userlevel_label.Text = "权  限";
             // 
             // userPassword_Textbox
             // 
             this.userPassword_Textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.userPassword_Textbox.Location = new System.Drawing.Point(543, 18);
+            this.userPassword_Textbox.Location = new System.Drawing.Point(543, 13);
             this.userPassword_Textbox.Margin = new System.Windows.Forms.Padding(4);
             this.userPassword_Textbox.Name = "userPassword_Textbox";
             this.userPassword_Textbox.PasswordChar = '*';
@@ -222,7 +272,7 @@
             // 
             this.username_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.username_label.AutoSize = true;
-            this.username_label.Location = new System.Drawing.Point(27, 21);
+            this.username_label.Location = new System.Drawing.Point(27, 23);
             this.username_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.username_label.Name = "username_label";
             this.username_label.Size = new System.Drawing.Size(52, 15);
@@ -233,17 +283,17 @@
             // 
             this.userPassword_label.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userPassword_label.AutoSize = true;
-            this.userPassword_label.Location = new System.Drawing.Point(383, 18);
+            this.userPassword_label.Location = new System.Drawing.Point(383, 16);
             this.userPassword_label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userPassword_label.Name = "userPassword_label";
-            this.userPassword_label.Size = new System.Drawing.Size(61, 15);
+            this.userPassword_label.Size = new System.Drawing.Size(69, 15);
             this.userPassword_label.TabIndex = 2;
-            this.userPassword_label.Text = "密   码";
+            this.userPassword_label.Text = "密    码";
             // 
             // username_Textbox
             // 
             this.username_Textbox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.username_Textbox.Location = new System.Drawing.Point(143, 18);
+            this.username_Textbox.Location = new System.Drawing.Point(143, 13);
             this.username_Textbox.Margin = new System.Windows.Forms.Padding(4);
             this.username_Textbox.Name = "username_Textbox";
             this.username_Textbox.Size = new System.Drawing.Size(166, 25);
@@ -256,24 +306,25 @@
             this.dataGridView_user.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView_user.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_user.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_user.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_user.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView_user.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridView_user.Location = new System.Drawing.Point(0, 168);
+            this.dataGridView_user.Location = new System.Drawing.Point(0, 179);
             this.dataGridView_user.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_user.MultiSelect = false;
             this.dataGridView_user.Name = "dataGridView_user";
             this.dataGridView_user.ReadOnly = true;
+            this.dataGridView_user.RowHeadersWidth = 51;
             this.dataGridView_user.RowTemplate.Height = 23;
             this.dataGridView_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_user.Size = new System.Drawing.Size(727, 287);
+            this.dataGridView_user.Size = new System.Drawing.Size(727, 276);
             this.dataGridView_user.TabIndex = 7;
             this.dataGridView_user.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_user_CellContentClick);
             // 
@@ -316,10 +367,14 @@
         private System.Windows.Forms.Label userPassword_label;
         private System.Windows.Forms.TextBox username_Textbox;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView_user;
-        private System.Windows.Forms.Label userOPLevel_label;
+        private System.Windows.Forms.Label userOperator_label;
         private System.Windows.Forms.Label userlevel_label;
         private System.Windows.Forms.Label username_label;
         private System.Windows.Forms.ComboBox userlevel_comboBox;
-        private System.Windows.Forms.TextBox userOPLevel_textBox;
+        private System.Windows.Forms.TextBox userOperator_textBox;
+        private System.Windows.Forms.TextBox userEmployee_textBox;
+        private System.Windows.Forms.TextBox userGroup_textBox;
+        private System.Windows.Forms.Label userGroup_label;
+        private System.Windows.Forms.Label userEmployee_label;
     }
 }

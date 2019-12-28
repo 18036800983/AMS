@@ -48,6 +48,15 @@ namespace Server_Modle.XML
         Editor(typeof(CustomEditor), typeof(UITypeEditor))]
         public Xml_DbConfig DataBase { get; set; }
 
+        [XmlArray("TestDBConfig"), XmlArrayItem("DB"), TypeConverter(typeof(ListConverter)),
+        Category("测试设备数据库"),
+        DisplayName("测试设备数据库"),
+        Description("测试设备数据库"),
+        Browsable(true),
+        ReadOnly(false),
+        Editor(typeof(CustomEditor), typeof(UITypeEditor))]
+        public List<Xml_TestDBConfig> TestDBConfig { get; set; }
+
         [XmlElement("serialPortConfig"), TypeConverter(typeof(XmlConverter)),
         Category("串口设置"),
         DisplayName("串口配置"),

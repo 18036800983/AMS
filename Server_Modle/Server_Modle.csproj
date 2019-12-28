@@ -89,6 +89,8 @@
     <Compile Include="XML\Xml_SerialPortConfig.cs" />
     <Compile Include="XML\Xml_StationConfig.cs" />
     <Compile Include="XML\Xml_SysConfig.cs" />
+    <Compile Include="XML\Xml_TestDBConfig.cs" />
+    <Compile Include="XML\Xml_TestDBConfig_Column.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

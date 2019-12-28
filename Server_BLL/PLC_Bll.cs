@@ -819,28 +819,35 @@ namespace Server_BLL
                 {
                     try
                     {
+                        #region 局部变量
+                        string st = Recipe_Bll.GetCacheStationInfo(STName, "Step");
+                        if (string.IsNullOrEmpty(st))
+                        {
+                            return;
+                        }
                         int stepNo = Convert.ToInt32(Recipe_Bll.GetCacheStationInfo(STName, "Step"));
                         string sn = Recipe_Bll.GetCacheStationInfo(STName, "SN");
                         Crafts_Recipe_Modle crafts_Recipe_Modle = Recipe_Bll.GetSingleRecipe(STName, stepNo);
+                        #endregion
 
                         #region 无需追溯，直接通过
                         if (crafts_Recipe_Modle.Istrace == 0)
                         {
-                            boltCurNumber = 1;
-                            recodePLCStationMessage(LineName + STName, "SN：" + sn + ",Formula number " + stepNo + " ，" + boltCurNumber + " No bolts are traced back!", 0, true);
+                            recodePLCStationMessage(LineName + STName, "SN：" + sn + ",Step:" + stepNo + ",Formula number " + stepNo + " ，" + boltCurNumber + " No bolts are traced back!", 0, false);
                             Recipe_Bll.Business(LineName, STName, stepNo + 1);
                             return;
                         }
                         #endregion
 
                         #region 读取plc地址里的值
+                        Thread.Sleep(3000);
                         string testName = Recipe_Bll.GetTestType(crafts_Recipe_Modle.ComponentName);
                         Stopwatch sw = new Stopwatch();
                         var stObj = lineObj.STATION.Single(n => n.Name == STName);
-                        var opcitem = stObj.Opcitem.SingleOrDefault(n => n.Name == OPCName && testName.Contains(n.OperationDesc));
+                        var opcitem = stObj.Opcitem.SingleOrDefault(n => n.Name == OPCName);
                         var tag = opcitem.Tag.SingleOrDefault(n => n.Tag == int.Parse(itemValue));
                         if (tag == null) return;
-                        recodePLCStationMessage(LineName + STName, "SN：" + sn + ",Start measuring data records", 0, true);
+                        recodePLCStationMessage(LineName + STName, "SN：" + sn + ",Start measuring data records", 0, false);
                         var dataList = tag.Dataitem;
                         sw.Start();
                         string dbColumnStr = string.Empty, dbValueStr = string.Empty, logInfo = string.Empty, result = string.Empty;
@@ -852,23 +859,34 @@ namespace Server_BLL
                             if (item.ColmnName == "MeasureResult")
                             {
                                 result = ABRead(abPlc[lineObj.Index], item.Addr, item.AddrType, ushort.Parse(item.AddrLength)).ToString();
+                                recodePLCStationMessage(LineName + STName, "Measure name :" + testName + ",Step:" + stepNo + ", Result:" + result, 0, true);
                             }
                         }
                         sw.Stop();
                         sw.Reset();
                         #endregion
 
-                        #region 处理追溯数据
+                        #region 检测星云插入到数据库的数据
+                        string count = Trace_Measure_Bll.Select_Count_Measure_Table(STName, sn, opcitem.OperationDesc);
+                        if (int.Parse(count) == 0)
+                        {
+                            recodePLCStationMessage(LineName + STName, "SN：" + sn + ",Step:" + stepNo + ",test name " + testName + " , need tace: " + XML_Tool.xml.TestDBConfig.Count + ",really trace :" + count + " failed!", 1, false);
+                            ABWrite(abPlc[lineObj.Index], BackAddr, "12", opcitem.AddrType, 0);
+                            return;
+                        }
+                        #endregion
+
+                        #region 处理追溯结果
                         if (result == "1")
                         {
-                            ABWrite(abPlc[lineObj.Index], BackAddr, "1", opcitem.AddrType, 0);//success
-                            recodePLCStationMessage(LineName + STName, logInfo + " Measurement data recording completed！", 0, false);
+                            ABWrite(abPlc[lineObj.Index], BackAddr, "11", opcitem.AddrType, 0);//success
+                            recodePLCStationMessage(LineName + STName, "Measure name :" + testName + ",Step:" + stepNo + ", Measurement data recording completed！", 0, false);
                             Recipe_Bll.Business(LineName, STName, stepNo + 1);
                         }
                         else
                         {
-                            ABWrite(abPlc[lineObj.Index], BackAddr, "2", opcitem.AddrType, 0);//fail
-                            recodePLCStationMessage(LineName + STName, logInfo + " Measurement data recording completed！The result is NG！", 0, true);
+                            ABWrite(abPlc[lineObj.Index], BackAddr, "11", opcitem.AddrType, 0);//fail
+                            recodePLCStationMessage(LineName + STName, "Measure name :" + testName + ",Step:" + stepNo + ", Measurement data recording completed！The result is NG！", 0, true);
                         }
                         #endregion
                     }

@@ -445,7 +445,7 @@ namespace AMS_Server.FromMain
                 #endregion
 
                 #region control
-                this.title_label.Location = new System.Drawing.Point(160, 300);
+                this.title_label.Location = new System.Drawing.Point(160, 330);
                 this.title_label.Font = new System.Drawing.Font("隶书", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(134)));
                 #endregion
 

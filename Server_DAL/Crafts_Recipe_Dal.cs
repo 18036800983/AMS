@@ -192,11 +192,21 @@ namespace Server_DAL
         /// </summary>
         public static string Select_Sation_Recipe_Table(string production, string station)
         {
+            string _station = string.Empty;
+            if (station.StartsWith("OP"))
+            {
+                _station = station.Substring(0, 6);
+            }
+            else
+            {
+                _station = station.Substring(0, 5);
+            }
             string _select_station_recipe = "SELECT [RecipeID],[ProductionName]"
                 + ",[Station],[Step],[OperationType],[ProgramNo],[CheckRule]"
                 + ",[BlotNo],[ComponentName],[BlotNumber],[ComponentNNumber]"
                 + ",[BarcodeLength],[Istrace],[IsCheck],[ImagePath],[SleeveNo]" 
-                + ",[StepDescription] FROM [AMS].[dbo].[Crafts_Recipe]";
+                + ",[StepDescription] FROM [AMS].[dbo].[Crafts_Recipe] " 
+                + " Where ProductionName = '" + production + "' and Station = '" + _station + "'";
             return _select_station_recipe;
         }
     }

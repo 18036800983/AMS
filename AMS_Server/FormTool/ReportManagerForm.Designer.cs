@@ -189,7 +189,6 @@
             this.txtCode.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtCode.TabIndex = 19;
             this.txtCode.Text = "";
-            this.txtCode.WatermarkText = "请输入序列号";
             // 
             // txtStation
             // 
@@ -206,7 +205,6 @@
             this.txtStation.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtStation.TabIndex = 8;
             this.txtStation.Text = "";
-            this.txtStation.WatermarkText = "输入工位";
             // 
             // count_label
             // 

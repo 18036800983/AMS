@@ -255,7 +255,11 @@ namespace Server_Tools.Language
 
         public static string UserManageForm_User_level = "权 限";
 
-        public static string UserManageForm_User_opLevel = "操作权限";
+        public static string UserManageForm_User_opLevel = "操作员工";
+
+        public static string UserManageForm_User_employeeID = "员工号";
+
+        public static string UserManageForm_User_group = "班    组";
         #endregion
 
         #region LogManagerForm
@@ -279,9 +283,9 @@ namespace Server_Tools.Language
 
         public static string ReportManagerForm_Condition_time = "时间：";
 
-        public static string ReportManagerForm_Condition_serialN0 = "序列号：";
+        public static string ReportManagerForm_Condition_serialN0 = "总成号：";
 
-        public static string ReportManagerForm_serialN0_tip = "请输入序列号";
+        public static string ReportManagerForm_serialN0_tip = "请输入总成号";
 
         public static string ReportManagerForm_Condition_station = "工位:";
 

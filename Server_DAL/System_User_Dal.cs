@@ -12,6 +12,17 @@ namespace Server_DAL
     {
 
         /// <summary>
+        /// select by employee id
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        public string Select_LoginInfo_Table(string employeeID)
+        {
+            string _selectSql = "select * from [AMS].[dbo].[Sys_User] Where [UserEmployeeID] = '" + employeeID + "'";
+            return _selectSql;
+        }
+
+        /// <summary>
         /// select all data from database (when data large prevent using the type of select *)
         /// </summary>
         /// <returns></returns>
@@ -62,11 +73,13 @@ namespace Server_DAL
         /// <returns></returns>
         public string Insert_ONE_User_Table(System_User_Modle sum)
         {
-            string _insert_one_sql = "INSERT INTO [AMS].[dbo].[Sys_User]" 
-                + "([UserName],[Password],[UserLevel],[UserOPLevel]) VALUES " 
-                + "('" + sum.UserName + "','" + sum.Password + "','" 
-                + sum.UserLevel + "','" + sum.UserOPLevel + "')";
-            return _insert_one_sql;
+            string _insertSql = "INSERT INTO [AMS].[dbo].[Sys_User]" 
+                + "([UserName],[Password],[UserLevel],[UserOperator]" 
+                + ",[UserEmployeeID],[UserGroup]) VALUES('" + sum.UserName 
+                + "','" + sum.Password + "','" + sum.UserLevel 
+                + "','" + sum.UserOperator + "','" + sum.UserEmployeeID 
+                + "','" + sum.UserGroup + "')";
+            return _insertSql;
         }
 
         /// <summary>
@@ -76,12 +89,15 @@ namespace Server_DAL
         /// <returns></returns>
         public string Update_ONE_User_Table(System_User_Modle sum)
         {
-            string _update_one_sql = "UPDATE [AMS].[dbo].[Sys_User]" 
-                + "SET[UserName] = '" + sum.UserName + "',[Password] = '" 
-                + sum.Password + "',[UserLevel] = '" + sum.UserLevel 
-                + "',[UserOPLevel] = '" + sum.UserOPLevel 
+            string _updateSql = "UPDATE [AMS].[dbo].[Sys_User]" 
+                + "SET [UserName] = '" + sum.UserName 
+                + "',[Password] = '" + sum.Password 
+                + "',[UserLevel] = '" + sum.UserLevel 
+                + "',[UserOperator] = '" + sum.UserOperator 
+                + "',[UserEmployeeID] = '" + sum.UserEmployeeID 
+                + "',[UserGroup] = '" + sum.UserGroup
                 + "' WHERE ID = " + sum.ID;
-            return _update_one_sql;
+            return _updateSql;
         }
 
         /// <summary>

@@ -14,6 +14,20 @@ namespace Server_BLL
     public class System_User_Bll : DB_Tool
     {
         System_User_Dal system_User_Dal = new System_User_Dal();
+
+        /// <summary>
+        /// select by employee id
+        /// </summary>
+        /// <param name="employeeID"></param>
+        /// <returns></returns>
+        public DataTable Select_LoginInfo_Table(string employeeID)
+        {
+            using (var con = GetOpenConnection())
+            {
+                return con.ExecuteDataTable(system_User_Dal.Select_LoginInfo_Table(employeeID));
+            }
+        }
+
         /// <summary>
         /// Execute select all data from database (when data large prevent using the type of select *)
         /// </summary>

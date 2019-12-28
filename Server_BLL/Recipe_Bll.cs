@@ -48,6 +48,10 @@ namespace Server_BLL
         {
             try
             {
+                if (RecipesDic.Count > 0)
+                {
+                    RecipesDic.Clear();
+                }
                 List<Crafts_Recipe_Modle> recipeList = Crafts_Recipe_Bll.GetRecipesByProductionAndStation(production, stationName);
                 if (recipeList.Count > 0)
                 {
@@ -155,7 +159,6 @@ namespace Server_BLL
         {
             StationsDic[stationName]["Step"] = "";
             StationsDic[stationName]["SN"] = "";
-
         }
         /// <summary>
         /// 清空工位配方
@@ -174,8 +177,14 @@ namespace Server_BLL
         /// <param name="step"></param>
         public static void Business(string lineName, string station, int step)
         {
-            #region 清空变量
-            ClearControl(lineName, station, step - 1);
+            #region 检查当前步是否大于总步数
+            //string ss = Recipe_Bll.GetCacheStationInfo(station, "TotalStep");
+            //int totalStep = int.Parse(Recipe_Bll.GetCacheStationInfo(station, "TotalStep"));
+            //if (step > totalStep)
+            //{
+            //    recodeRecipeMessage(lineName + station, "Current step can not more than the total Step, Current step:" + step + " , total step:" + totalStep, 1, true);
+            //    return;
+            //}
             #endregion
 
             #region 变量
@@ -275,7 +284,7 @@ namespace Server_BLL
             #region 测量
             if (crafts_Recipe_Modle.OperationType == "测量" || crafts_Recipe_Modle.OperationType == "Measuring")
             {
-                var opcObj = stationObj.Opcitem.Single(n => n.Name.Contains("测量记录") && GetTestType(crafts_Recipe_Modle.ComponentName).Contains(n.OperationDesc));
+                var opcObj = stationObj.Opcitem.Single(n => n.Name.Contains("测量记录"));
                 string backAddr = opcObj.BackAddr;
                 var dataitemObj = opcObj.Tag.Single(n => n.Name == "测量下发").Dataitem;
                 if (dataitemObj.Count == 0)//无需下发程序号
@@ -299,7 +308,7 @@ namespace Server_BLL
                     {
                         if (data.Name == "ProgramNo")
                         {
-                            if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], data.Addr, crafts_Recipe_Modle.ProgramNo.ToString(), "int",0))
+                            if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], data.Addr, crafts_Recipe_Modle.ProgramNo.ToString(), data.AddrType,0))
                             {
                                 recodeRecipeMessage(lineName + station, "Station：" + station + " , Step："
                                     + step + " ,Send measuring address：" + backAddr + " , Write value ："
@@ -307,7 +316,7 @@ namespace Server_BLL
                             }
                         }
                     }
-                    if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], backAddr, "21", "int",0))
+                    if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], backAddr, "21", opcObj.AddrType,0))
                     {
                         recodeRecipeMessage(lineName + station, "Station：" + station + " , Step："
                                     + step + " ,Send measuring address：" + backAddr + " , Write value ："
@@ -327,20 +336,11 @@ namespace Server_BLL
             if (crafts_Recipe_Modle.OperationType == "结束" || crafts_Recipe_Modle.OperationType == "End")
             {
                 string sn = Recipe_Bll.GetCacheStationInfo(station, "SN");
+                var opcObj = stationObj.Opcitem.Single(n => n.Name == "总成绑定");
+                PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], opcObj.BackAddr, "0", opcObj.AddrType, 0);
 
                 #region 获取工位结果以及工单号
-                //DataTable dt = trace_Bolt_Bll.Select_Result_Bolt_Table(station, sn);
                 int result = 1;
-                //for (int i = 0; i < dt.Rows.Count; i++)
-                //{
-                //    if (dt.Rows[i]["Result"].ToString() == "2")
-                //    {
-                //        result = 2;
-                //        break;
-                //    }
-                //    result = 1;
-                //}
-
                 string workOrder = Crafts_CurPlan_Bll.Select_workOrder_Table();
                 #endregion
 
@@ -460,22 +460,22 @@ namespace Server_BLL
             #region 测量
             if (crafts_Recipe_Modle.OperationType == "测量" || crafts_Recipe_Modle.OperationType == "Measuring")
             {
-                var opcObj = stationObj.Opcitem.Single(n => n.Name == "测量记录" && GetTestType(crafts_Recipe_Modle.ComponentName).Contains(n.OperationDesc));
+                var opcObj = stationObj.Opcitem.Single(n => n.Name.Contains("测量记录") && GetTestType(crafts_Recipe_Modle.ComponentName).Contains(n.OperationDesc));
                 string backAddr = opcObj.BackAddr;
                 var dataitemObj = opcObj.Tag.Single(n => n.Name == "测量下发").Dataitem;
                 if (dataitemObj.Count == 0)//无需下发程序号
                 {
-                    if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], backAddr, "0", "short", 0))
+                    if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], backAddr, "0", opcObj.AddrType, 0))
                     {
                         recodeRecipeMessage(lineName + station, "Station：" + station + " , Step："
                                     + step + " ,Send measuring address：" + backAddr + " , Write value ："
-                                    + " 0，Successfully written！", 0, false);
+                                    + " 0，Successfully written！", 0, true);
                     }
                     else
                     {
                         recodeRecipeMessage(lineName + station, "Station：" + station + " , Step："
                                     + step + " ,Send measuring address：" + backAddr + " , Write value ："
-                                    + " 0，Write failure！", 0, false);
+                                    + " 0，Write failure！", 0, true);
                     }
                 }
                 else
@@ -484,11 +484,11 @@ namespace Server_BLL
                     {
                         if (data.Name == "ProgramNo")
                         {
-                            if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], data.Addr, "0", data.AddrType, 0))
+                            if (PLC_Bll.ABWrite(PLC_Bll.abPlc[lineObj.Index], data.Addr, crafts_Recipe_Modle.ProgramNo.ToString(), data.AddrType, 0))
                             {
                                 recodeRecipeMessage(lineName + station, "Station：" + station + " , Step："
-                                    + step + " ,Send measuring address：" + backAddr + " , Write value ：0"
-                                    + " ，Successfully written！", 0, true);
+                                    + step + " ,Send measuring address：" + backAddr + " , Write value ："
+                                    + crafts_Recipe_Modle.ProgramNo.ToString() + " ，Successfully written！", 0, true);
                             }
                         }
                     }
@@ -517,15 +517,15 @@ namespace Server_BLL
         public static string GetTestType(string componentName)
         {
             string testName = string.Empty;
-            if (componentName.Contains("气密性"))
+            if (componentName.Contains("气密性") || componentName.Contains("Air tightness"))
                 testName = "气密性";
             if (componentName.Contains("EOL"))
                 testName = "EOL";
-            if (componentName.Contains("充放电"))
+            if (componentName.Contains("充放电") || componentName.Contains("Discharge"))
                 testName = "充放电";
-            if (componentName.Contains("BMS刷写"))
+            if (componentName.Contains("BMS刷写") || componentName.Contains("BMS flashing"))
                 testName = "BMS刷写";
-            if (componentName.Contains("高压绝缘"))
+            if (componentName.Contains("高压绝缘") || componentName.Contains("High voltage insulation"))
                 testName = "高压绝缘";
             if (componentName.Contains("OCV"))
                 testName = "OCV";

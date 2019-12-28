@@ -84,7 +84,9 @@ namespace AMS_Server.FormSetting
                 username_Textbox.Text = string.Empty;
                 userPassword_Textbox.Text = string.Empty;
                 userlevel_comboBox.Text = string.Empty;
-                userOPLevel_textBox.Text = string.Empty;
+                userOperator_textBox.Text = string.Empty;
+                userEmployee_textBox.Text = string.Empty;
+                userGroup_textBox.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -115,11 +117,14 @@ namespace AMS_Server.FormSetting
                 #region check
                 if (string.IsNullOrEmpty(username_Textbox.Text.Trim())
                     || string.IsNullOrEmpty(userPassword_Textbox.Text.Trim())
-                    || string.IsNullOrEmpty(userlevel_comboBox.Text.Trim()))
+                    || string.IsNullOrEmpty(userlevel_comboBox.Text.Trim()) 
+                    || string.IsNullOrEmpty(userOperator_textBox.Text.Trim()) 
+                    || string.IsNullOrEmpty(userEmployee_textBox.Text.Trim()) 
+                    || string.IsNullOrEmpty(userGroup_textBox.Text.Trim()))
                 {
                     if (XML_Tool.xml.SysConfig.IsChinese)
                     {
-                        MessageBoxEx.Show("账户名，密码，权限不能为空，请检查后再添加！");
+                        MessageBoxEx.Show("参数不能为空，请检查后再添加！");
                         return;
                     }
                     else
@@ -129,7 +134,7 @@ namespace AMS_Server.FormSetting
                     }
                 }
                 if ((userlevel_comboBox.Text == "操作员" || userlevel_comboBox.Text == "operator")
-                    && string.IsNullOrEmpty(userOPLevel_textBox.Text.Trim()))
+                    && string.IsNullOrEmpty(userOperator_textBox.Text.Trim()))
                 {
                     if (XML_Tool.xml.SysConfig.IsChinese)
                     {
@@ -187,7 +192,9 @@ namespace AMS_Server.FormSetting
                 system_User_Modle.UserName = username_Textbox.Text.Trim();
                 system_User_Modle.Password = userPassword_Textbox.Text.Trim();
                 system_User_Modle.UserLevel = userlevel_comboBox.Text.Trim();
-                system_User_Modle.UserOPLevel = userOPLevel_textBox.Text.Trim();
+                system_User_Modle.UserOperator = userOperator_textBox.Text.Trim();
+                system_User_Modle.UserEmployeeID = userEmployee_textBox.Text.Trim();
+                system_User_Modle.UserGroup = userGroup_textBox.Text.Trim();
                 #endregion
 
                 #region modify
@@ -353,21 +360,24 @@ namespace AMS_Server.FormSetting
                 #region check
                 if (string.IsNullOrEmpty(username_Textbox.Text.Trim())
                     || string.IsNullOrEmpty(userPassword_Textbox.Text.Trim())
-                    || string.IsNullOrEmpty(userlevel_comboBox.Text.Trim()))
+                    || string.IsNullOrEmpty(userlevel_comboBox.Text.Trim())
+                    || string.IsNullOrEmpty(userOperator_textBox.Text.Trim())
+                    || string.IsNullOrEmpty(userEmployee_textBox.Text.Trim())
+                    || string.IsNullOrEmpty(userGroup_textBox.Text.Trim()))
                 {
                     if (XML_Tool.xml.SysConfig.IsChinese)
                     {
-                        MessageBoxEx.Show("账户名，密码，权限不能为空，请检查后再添加！");
+                        MessageBoxEx.Show("账户名，密码等参数不能为空，请检查后再添加！");
                         return;
                     }
                     else
                     {
-                        MessageBoxEx.Show("user name or password or Permission is null，plsase added by checking！");
+                        MessageBoxEx.Show("user name or password or Permission and more is null，plsase added by checking！");
                         return;
                     }
                 }
                 if ((userlevel_comboBox.Text == "操作员" || userlevel_comboBox.Text == "operator")
-                    && string.IsNullOrEmpty(userOPLevel_textBox.Text.Trim()))
+                    && string.IsNullOrEmpty(userOperator_textBox.Text.Trim()))
                 {
                     if (XML_Tool.xml.SysConfig.IsChinese)
                     {
@@ -399,7 +409,9 @@ namespace AMS_Server.FormSetting
                 system_User_Modle.UserName = username_Textbox.Text.Trim();
                 system_User_Modle.Password = userPassword_Textbox.Text.Trim();
                 system_User_Modle.UserLevel = userlevel_comboBox.Text.Trim();
-                system_User_Modle.UserOPLevel = userOPLevel_textBox.Text.Trim();
+                system_User_Modle.UserOperator = userOperator_textBox.Text.Trim();
+                system_User_Modle.UserEmployeeID = userEmployee_textBox.Text.Trim();
+                system_User_Modle.UserGroup = userGroup_textBox.Text.Trim();
                 #endregion
 
                 #region save
@@ -494,7 +506,9 @@ namespace AMS_Server.FormSetting
                 username_Textbox.Text = dataGridView_user.CurrentRow.Cells["UserName"].Value.ToString();
                 userPassword_Textbox.Text = dataGridView_user.CurrentRow.Cells["Password"].Value.ToString();
                 userlevel_comboBox.Text = dataGridView_user.CurrentRow.Cells["UserLevel"].Value.ToString();
-                userOPLevel_textBox.Text = dataGridView_user.CurrentRow.Cells["UserOPLevel"].Value.ToString();
+                userOperator_textBox.Text = dataGridView_user.CurrentRow.Cells["UserOperator"].Value.ToString();
+                userEmployee_textBox.Text = dataGridView_user.CurrentRow.Cells["UserEmployeeID"].Value.ToString();
+                userGroup_textBox.Text = dataGridView_user.CurrentRow.Cells["UserGroup"].Value.ToString();
             }
             catch (Exception ex)
             {
@@ -531,7 +545,9 @@ namespace AMS_Server.FormSetting
                 username_label.Text = Chinese.UserManageForm_User_name;
                 userPassword_label.Text = Chinese.UserManageForm_User_pwd;
                 userlevel_label.Text = Chinese.UserManageForm_User_level;
-                userOPLevel_label.Text = Chinese.UserManageForm_User_opLevel;
+                userOperator_label.Text = Chinese.UserManageForm_User_opLevel;
+                userEmployee_label.Text = Chinese.UserManageForm_User_employeeID;
+                userGroup_label.Text = Chinese.UserManageForm_User_group;
                 #endregion
             }
             else
@@ -547,7 +563,9 @@ namespace AMS_Server.FormSetting
                 username_label.Text = English.UserManageForm_User_name;
                 userPassword_label.Text = English.UserManageForm_User_pwd;
                 userlevel_label.Text = English.UserManageForm_User_level;
-                userOPLevel_label.Text = English.UserManageForm_User_opLevel;
+                userOperator_label.Text = English.UserManageForm_User_opLevel;
+                userEmployee_label.Text = English.UserManageForm_User_employeeID;
+                userGroup_label.Text = English.UserManageForm_User_group;
                 #endregion
             }
         }

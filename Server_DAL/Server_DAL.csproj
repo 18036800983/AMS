@@ -53,7 +53,7 @@
     <Compile Include="System_User_Dal.cs" />
     <Compile Include="Trace_Bolt_Dal.cs" />
     <Compile Include="Trace_Keypart_Dal.cs" />
-    <Compile Include="Trace_Measure_Modle.cs" />
+    <Compile Include="Trace_Measure_Dal.cs" />
     <Compile Include="Trace_StationStatus_Dal.cs" />
   </ItemGroup>
   <ItemGroup>

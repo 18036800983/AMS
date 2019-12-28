@@ -255,7 +255,11 @@ namespace Server_Tools.Language
 
         public static string UserManageForm_User_level = "Privilege";
 
-        public static string UserManageForm_User_opLevel = "operation Privilege";
+        public static string UserManageForm_User_opLevel = "Operator";
+
+        public static string UserManageForm_User_employeeID = "Employee ID";
+
+        public static string UserManageForm_User_group = "Team";
         #endregion
 
         #region LogManagerForm
@@ -279,9 +283,9 @@ namespace Server_Tools.Language
 
         public static string ReportManagerForm_Condition_time = "time：";
 
-        public static string ReportManagerForm_Condition_serialN0 = "serial No：";
+        public static string ReportManagerForm_Condition_serialN0 = "SN：";
 
-        public static string ReportManagerForm_serialN0_tip = "Please enter the serial number";
+        public static string ReportManagerForm_serialN0_tip = "Please enter the SN number";
 
         public static string ReportManagerForm_Condition_station = "station:";
 

@@ -82,6 +82,7 @@
     <Compile Include="System_User_Bll.cs" />
     <Compile Include="Trace_Bolt_Bll.cs" />
     <Compile Include="Trace_Keypart_Bll.cs" />
+    <Compile Include="Trace_Measure_Bll.cs" />
     <Compile Include="Trace_StationStatus_Bll.cs" />
   </ItemGroup>
   <ItemGroup>

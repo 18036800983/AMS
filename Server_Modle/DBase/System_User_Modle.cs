@@ -12,12 +12,17 @@ namespace Server_Modle.DBase
         private string userName;
         private string password;
         private string userLevel;
-        private string userOPLevel;
+        private string userOperator;
+        private string userEmployeeID;
+        private string userGroup;
+
 
         public int ID { get => iD; set => iD = value; }
         public string UserName { get => userName; set => userName = value; }
         public string Password { get => password; set => password = value; }
         public string UserLevel { get => userLevel; set => userLevel = value; }
-        public string UserOPLevel { get => userOPLevel; set => userOPLevel = value; }
+        public string UserOperator { get => userOperator; set => userOperator = value; }
+        public string UserEmployeeID { get => userEmployeeID; set => userEmployeeID = value; }
+        public string UserGroup { get => userGroup; set => userGroup = value; }
     }
 }

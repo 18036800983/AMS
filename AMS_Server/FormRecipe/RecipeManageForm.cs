@@ -80,6 +80,7 @@ namespace AMS_Server.FormRecipe
                     recipe_operationType_comboBox.Items.Add("测量");
                     recipe_operationType_comboBox.Items.Add("自动站");
                     recipe_operationType_comboBox.Items.Add("安装");
+                    recipe_operationType_comboBox.Items.Add("手动拧紧");
                     recipe_operationType_comboBox.Items.Add("结束");
                 }
                 else
@@ -89,6 +90,7 @@ namespace AMS_Server.FormRecipe
                     recipe_operationType_comboBox.Items.Add("Measuring");
                     recipe_operationType_comboBox.Items.Add("Automatic");
                     recipe_operationType_comboBox.Items.Add("install");
+                    recipe_operationType_comboBox.Items.Add("HandTight");
                     recipe_operationType_comboBox.Items.Add("End");
                 }
                 #endregion
